@@ -16,8 +16,9 @@ test('setup', async t => {
 
 test('create an invitation', async t => {
     const { crypto } = program.components
-    const inv = await create(crypto, 'alice')
+    const inv = await create(crypto, 'alice', 'this is the comment')
     t.ok(inv.signature, 'should sign the new invitation')
     t.ok(inv.author.includes('did:key'), 'should include the signing DID')
     t.equal(inv.from, 'alice', 'should include the username')
+    t.equal(inv.comment, 'this is the comment', "should create the 'comment' field")
 })

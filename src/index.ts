@@ -4,6 +4,7 @@ import { v4 as uuid } from 'uuid'
 
 export interface Invitation {
     from:string  // username
+    comment:string|null
     code:string
 }
 
@@ -14,12 +15,18 @@ export type SignedInvitation = SignedRequest<Invitation>
  * keys and username passed in.
  * @param {Crypto.Implementation} crypto Fission crypto object
  * @param {string} username The username that created the invitation
+ * @param {string} comment You can leave a note on the invitation
  * @returns {Promise<SignedInvitation>}
  */
 export function create (
     crypto:Crypto.Implementation,
-    username:string
+    username:string,
+    comment?:string,
 ):Promise<SignedInvitation> {
-    const code = uuid()
-    return createMsg(crypto, { code, from: username })
+    const code:string = uuid()
+    return createMsg(crypto, {
+        code,
+        comment: comment ?? null,
+        from: username
+    })
 }
