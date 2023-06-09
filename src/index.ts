@@ -16,7 +16,7 @@ export type SignedInvitation = SignedRequest<Invitation>
  * @param {string} username The username that created the invitation
  * @returns {SignedInvitation}
  */
-export async function create (
+export function create (
     crypto:Crypto.Implementation,
     username:string
 ):Promise<SignedInvitation> {
