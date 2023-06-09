@@ -6,6 +6,9 @@ Create Invitations
 Create a new invitation document. The document includes a signature of the person who created it, and also a unique code.
 
 ```js
+import { test } from 'tapzero'
+import { create } from '@ssc-hermes/invitation'
+
 test('create an invitation', async t => {
     // program is odd.Program
     const { crypto } = program.components

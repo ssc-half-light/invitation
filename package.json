@@ -1,7 +1,25 @@
 {
-  "type": "module",
+  "name": "@ssc-hermes/invitation",
   "version": "0.0.0",
+  "type": "module",
   "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "description": "Create Invitations",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssc-hermes/invitation.git"
+  },
+  "keywords": [
+    "invitation"
+  ],
+  "bugs": {
+    "url": "https://github.com/ssc-hermes/invitation/issues"
+  },
+  "homepage": "https://github.com/ssc-hermes/invitation#readme",
+  "author": "nichoth <nichoth@gmail.com> (https://nichoth.com)",
   "scripts": {
     "lint": "standardx -v \"./**/*.ts\"",
     "build-tests": "esbuild test/*.ts --platform=node --format=esm --outdir=test --keep-names",
@@ -42,6 +60,5 @@
       ]
     }
   },
-  "author": "nichoth <nichoth@gmail.com> (https://nichoth.com)",
   "license": "AGPL-3.0-or-later"
 }
