@@ -1,8 +1,8 @@
 import { test } from 'tapzero'
 import * as odd from '@oddjs/odd'
 import { Program } from '@oddjs/odd'
-import { create } from '../dist/index.js'
 import { components } from '@ssc-hermes/node-components'
+import { create } from '../dist/index.js'
 
 let program:Program
 test('setup', async t => {
