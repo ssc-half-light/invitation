@@ -14,7 +14,7 @@ export type SignedInvitation = SignedRequest<Invitation>
  * keys and username passed in.
  * @param {Crypto.Implementation} crypto Fission crypto object
  * @param {string} username The username that created the invitation
- * @returns {SignedInvitation}
+ * @returns {Promise<SignedInvitation>}
  */
 export function create (
     crypto:Crypto.Implementation,
