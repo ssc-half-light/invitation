@@ -27,7 +27,8 @@ test('create an invitation', async t => {
     t.ok(inv.signature, 'should sign the new invitation')
     t.ok(inv.author.includes('did:key'), 'should include the signing DID')
     t.equal(inv.from, 'alice', 'should include the username')
-    t.equal(inv.comment, 'this is the comment', "should create the 'comment' field")
+    t.equal(inv.comment, 'this is the comment',
+        "should create the 'comment' field")
     t.ok(await verify(inv), 'invitation should be valid')
 })
 ```
