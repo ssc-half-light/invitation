@@ -2,8 +2,7 @@ import { test } from 'tapzero'
 import * as odd from '@oddjs/odd'
 import { Program } from '@oddjs/odd'
 import { components } from '@ssc-hermes/node-components'
-import { create } from '../dist/index.js'
-import { verify } from '@ssc-hermes/message'
+import { create, verify } from '../dist/index.js'
 
 let program:Program
 test('setup', async t => {

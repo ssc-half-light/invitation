@@ -7,10 +7,21 @@ This does not handle persistence, only in-memory objects.
 ## example
 Create a new invitation document. The document includes a signature of the person who created it, and also a unique code.
 
+### create an invitation
+
+Create an invitation document
+
+```ts
+function create (
+    crypto:Crypto.Implementation,
+    username:string,
+    comment?:string,
+):Promise<SignedInvitation>
+```
+
 ```js
 import { test } from 'tapzero'
-import { create } from '@ssc-hermes/invitation'
-import { verify } from '@ssc-hermes/message'
+import { verify, create } from '@ssc-hermes/invitation'
 
 test('create an invitation', async t => {
     // program is odd.Program

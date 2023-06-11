@@ -2,6 +2,8 @@ import type { Crypto } from '@oddjs/odd'
 import { create as createMsg, SignedRequest } from '@ssc-hermes/message'
 import { v4 as uuid } from 'uuid'
 
+export { verify } from '@ssc-hermes/message'
+
 export interface Invitation {
     from:string  // username
     comment:string|null
