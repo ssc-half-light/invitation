@@ -12,7 +12,10 @@ export interface Invitation {
 
 export type SignedInvitation = SignedRequest<Invitation>
 
-export type SignedDeleteRequest = SignedRequest<{ invitation: { code:string }}>
+export type SignedDeleteRequest = SignedRequest<{
+    type: 'delete',
+    invitation: { code:string }
+}>
 
 /**
  * Create an invitation. This will create and sign a message with the given crypto
