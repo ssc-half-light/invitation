@@ -12,6 +12,8 @@ export interface Invitation {
 
 export type SignedInvitation = SignedRequest<Invitation>
 
+export type SignedDeleteRequest = SignedRequest<{ invitation: { code:string }}>
+
 /**
  * Create an invitation. This will create and sign a message with the given crypto
  * keys and username passed in.
@@ -26,6 +28,7 @@ export function create (
     comment?:string,
 ):Promise<SignedInvitation> {
     const code:string = uuid()
+
     return createMsg(crypto, {
         code,
         comment: comment ?? null,
