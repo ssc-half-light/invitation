@@ -39,5 +39,5 @@ test('redeem an invitation', async t => {
     const redemption = await redeem(crypto, 'bob', invitation)
     t.ok(redemption, 'should return a "redemption" message')
     t.ok(redemption.invitation, 'should include the original invitation')
-    t.ok(redemption.invitation.from, 'should include the username of the inviter')
+    t.ok(redemption.invitation.code, 'should the invitation code')
 })

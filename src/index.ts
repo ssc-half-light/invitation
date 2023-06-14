@@ -18,7 +18,7 @@ export type SignedDeleteRequest = SignedRequest<{
 }>
 
 export interface Redemption {
-    invitation:Invitation,
+    invitation:{ code:string },
     username:string
 }
 
@@ -32,7 +32,7 @@ export type SignedRedemption = SignedRequest<Redemption>
  * @param invitation the invitation we are accepting
  * @returns {Promise<SignedRedemption>}
  */
-export function redeem (crypto, username, invitation:SignedInvitation):
+export function redeem (crypto, username, invitation:{ code }):
 Promise<SignedRedemption> {
     return createMsg(crypto, {
         invitation,
