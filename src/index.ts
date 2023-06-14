@@ -17,6 +17,29 @@ export type SignedDeleteRequest = SignedRequest<{
     invitation: { code:string }
 }>
 
+export interface Redemption {
+    invitation:Invitation,
+    username:string
+}
+
+export type SignedRedemption = SignedRequest<Redemption>
+
+/**
+ * Return a message that verifies the given user has accepted the
+ * given invitation
+ * @param crypto Fission's crypto
+ * @param username username of this user
+ * @param invitation the invitation we are accepting
+ * @returns {Promise<SignedRedemption>}
+ */
+export function redeem (crypto, username, invitation:SignedInvitation):
+Promise<SignedRedemption> {
+    return createMsg(crypto, {
+        invitation,
+        username
+    })
+}
+
 /**
  * Create an invitation. This will create and sign a message with the given crypto
  * keys and username passed in.
