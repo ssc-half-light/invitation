@@ -20,6 +20,22 @@
   },
   "homepage": "https://github.com/ssc-hermes/invitation#readme",
   "author": "nichoth <nichoth@gmail.com> (https://nichoth.com)",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./*": {
+      "import": [
+        "./dist/*.js",
+        "./dist/*"
+      ],
+      "require": [
+        "./dist/*.cjs",
+        "./dist/*"
+      ]
+    }
+  },
   "scripts": {
     "lint": "standardx -v \"./**/*.ts\"",
     "build-tests": "esbuild test/*.ts --platform=node --format=esm --outdir=test --keep-names",
@@ -27,7 +43,7 @@
     "build-cjs": "esbuild src/*.ts --format=cjs --keep-names --outdir=./dist --out-extension:.js=.cjs",
     "build": "mkdir -p ./dist && rm -rf ./dist/* && npm run build-cjs && tsc",
     "preversion": "npm run lint",
-    "postversion": "git push && git push --tags && npm publish",
+    "postversion": "git push && git push --tags && export $(cat .env | xargs) && npm publish",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
@@ -44,21 +60,8 @@
     "tapzero": "^0.6.1",
     "typescript": "^5.0.2"
   },
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
-    "./*": {
-      "import": [
-        "./dist/*.js",
-        "./dist/*"
-      ],
-      "require": [
-        "./dist/*.cjs",
-        "./dist/*"
-      ]
-    }
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "license": "AGPL-3.0-or-later"
 }
