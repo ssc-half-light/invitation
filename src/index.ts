@@ -1,8 +1,8 @@
 import type { Crypto } from '@oddjs/odd'
-import { create as createMsg, SignedRequest } from '@ssc-hermes/message'
+import { create as createMsg, SignedRequest } from '@ssc-half-light/message'
 import { v4 as uuid } from 'uuid'
 
-export { verify } from '@ssc-hermes/message'
+export { verify } from '@ssc-half-light/message'
 
 export interface Invitation {
     from:string  // username

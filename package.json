@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@oddjs/odd": "^0.37.1",
-    "@ssc-hermes/message": "^0.4.1",
+    "@ssc-half-light/message": "^0.5.20",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
